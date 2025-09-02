@@ -1,0 +1,28 @@
+{% extends 'layouts/app_base.html' %}
+
+{% block title %}
+  {% if form.instance.pk %}Edit Patient{% else %}Add Patient{% endif %}
+{% endblock %}
+
+{% block page_content %}
+<h1 class="text-3xl font-bold mb-6">
+  {% if form.instance.pk %}Edit Patient{% else %}Add a New Patient{% endif %}
+</h1>
+
+<div class="bg-white p-6 rounded-lg shadow">
+  <form method="post">
+    {% csrf_token %}
+    
+    {% for field in form %}
+      {% include 'partials/components/_form_field.html' with field=field %}
+    {% endfor %}
+
+    <div class="mt-6">
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+        Save Patient
+      </button>
+      <a href="{% url 'patient-list' %}" class="ml-4 text-gray-600 hover:underline">Cancel</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'layouts/app_base.html' %}
+
+{% block title %}Diagnosis Result{% endblock %}
+
+{% block page_content %}
+<h1 class="text-3xl font-bold mb-6">Diagnosis Details</h1>
+<div class="bg-white p-6 rounded-lg shadow">
+    <p><strong>Patient:</strong> <a href="{% url 'patient-detail' diagnosis.patient.id %}" class="text-blue-600 hover:underline">{{ diagnosis.patient.full_name }}</a></p>
+    <p><strong>Status:</strong> {{ diagnosis.get_status_display }}</p>
+    <p><strong>Date:</strong> {{ diagnosis.created_at }}</p>
+
+    {% if diagnosis.status == 'SUCCESS' %}
+        <h2 class="text-2xl font-bold mt-6 mb-4">AI Analysis Result</h2>
+        <pre class="bg-gray-100 p-4 rounded">{{ diagnosis.result|json_script:"result-json" }}</pre>
+    {% elif diagnosis.status == 'FAILURE' %}
+        <h2 class="text-2xl font-bold mt-6 mb-4 text-red-600">Processing Failed</h2>
+        <p class="text-red-700">{{ diagnosis.error_message }}</p>
+    {% else %}
+        <p class="mt-6">The diagnosis is still being processed. Please check back later.</p>
+    {% endif %}
+</div>
+{% endblock %}

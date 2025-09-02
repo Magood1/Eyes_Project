@@ -1,0 +1,12 @@
+## Download AI Models
+
+Due to the large file sizes of the model files (approximately 2 GB), these files have not been included in the repo to avoid exceeding GitHub's limits.
+
+You can download the AI ​​models from the following link:
+[Models Download Link](https://example.com/downloads/ai_models.zip)
+
+After downloading, please extract the files and place them in the `ai_models` folder in the project.
+
+Make sure the files are in the correct directory before running the server.
+
+If you encounter any problems downloading the files, please contact us.

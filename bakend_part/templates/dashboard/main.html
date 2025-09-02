@@ -1,0 +1,42 @@
+{% extends 'layouts/app_base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block page_content %}
+<h1 class="text-3xl font-bold mb-6">Dashboard</h1>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Stats Cards -->
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold">Total Patients</h2>
+        <p class="text-3xl mt-2">{{ counts.patients }}</p>
+    </div>
+    <div class="bg-white p-6 rounded-lg shadow">
+        <h2 class="text-xl font-semibold">Total Diagnoses</h2>
+        <p class="text-3xl mt-2">{{ counts.diagnoses }}</p>
+    </div>
+</div>
+
+<div class="mt-8">
+    <h2 class="text-2xl font-bold mb-4">Recent Diagnoses</h2>
+    <div class="bg-white p-6 rounded-lg shadow">
+        <ul class="divide-y divide-gray-200">
+            {% for diagnosis in recent_diagnoses %}
+            <li class="py-3 flex justify-between items-center">
+                <div>
+                    <p class="font-semibold">Patient: {{ diagnosis.patient.full_name }}</p>
+                    <p class="text-sm text-gray-500">{{ diagnosis.created_at|date:"F d, Y" }}</p>
+                </div>
+                <span class="px-2 py-1 text-sm rounded-full 
+                    {% if diagnosis.status == 'SUCCESS' %}bg-green-200 text-green-800
+                    {% elif diagnosis.status == 'FAILURE' %}bg-red-200 text-red-800
+                    {% else %}bg-yellow-200 text-yellow-800{% endif %}">
+                    {{ diagnosis.get_status_display }}
+                </span>
+            </li>
+            {% empty %}
+            <p>No recent diagnoses found.</p>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

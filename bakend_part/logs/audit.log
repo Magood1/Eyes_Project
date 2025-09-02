@@ -1,0 +1,15 @@
+INFO 2025-08-28 16:58:51,491 audit User 'Madmin' (ID: 5) retrieved patient 'Magd Hndi' (ID: 1cc78fe3-369d-4da9-9022-ccb3841815fe).
+INFO 2025-08-28 17:20:13,758 audit User 'Madmin' (ID: 5) retrieved patient 'Magd Hndi' (ID: 1cc78fe3-369d-4da9-9022-ccb3841815fe).
+INFO 2025-08-28 17:24:41,271 audit User 'Madmin' (ID: 5) retrieved patient 'Magd Hndi' (ID: 1cc78fe3-369d-4da9-9022-ccb3841815fe).
+INFO 2025-08-28 17:45:14,064 audit User 'Madmin' (ID: 5) retrieved patient 'Magd Hndi' (ID: 1cc78fe3-369d-4da9-9022-ccb3841815fe).
+INFO 2025-08-28 17:45:17,839 audit User 'Madmin' (ID: 5) retrieved patient 'Magd Hndi' (ID: 1cc78fe3-369d-4da9-9022-ccb3841815fe).
+INFO 2025-08-28 17:54:06,392 audit User 'Madmin' (ID: 5) retrieved patient 'Magd Hndi' (ID: 1cc78fe3-369d-4da9-9022-ccb3841815fe).
+INFO 2025-08-29 12:16:24,529 audit User 'Madmin' (ID: 5) retrieved patient 'Magd Hndi' (ID: 1cc78fe3-369d-4da9-9022-ccb3841815fe).
+INFO 2025-08-29 12:16:41,690 audit User 'new_doctor_username_1' (ID: 8) retrieved patient 'John Doe' (ID: b8d5d361-1788-488c-86e2-2c0e0795ea16).
+INFO 2025-08-29 12:16:58,312 audit User 'new_doctor_username_1' (ID: 8) retrieved patient 'John Doe' (ID: b8d5d361-1788-488c-86e2-2c0e0795ea16).
+INFO 2025-08-29 13:00:56,385 audit User 'Madmin' (ID: 5) retrieved patient 'Magd Hndi' (ID: 1cc78fe3-369d-4da9-9022-ccb3841815fe).
+INFO 2025-08-29 13:03:11,122 audit User 'Madmin' (ID: 5) retrieved patient 'Magd Hndi' (ID: 1cc78fe3-369d-4da9-9022-ccb3841815fe).
+INFO 2025-08-29 13:04:47,226 audit User 'Madmin' (ID: 5) retrieved patient 'Magd Hndi' (ID: 1cc78fe3-369d-4da9-9022-ccb3841815fe).
+INFO 2025-08-29 13:04:59,957 audit User 'Madmin' (ID: 5) retrieved patient 'Magd Hndi' (ID: 1cc78fe3-369d-4da9-9022-ccb3841815fe).
+INFO 2025-08-29 13:06:15,973 audit User 'Madmin' (ID: 5) retrieved patient 'May Dalloul' (ID: e93a24ad-da71-4c20-8044-203a45195306).
+INFO 2025-08-29 20:53:14,050 audit User 'new_doctor_username_1' (ID: 8) retrieved patient 'John Doe' (ID: b8d5d361-1788-488c-86e2-2c0e0795ea16).

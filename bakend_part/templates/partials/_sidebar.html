@@ -1,0 +1,11 @@
+<aside class="w-64 bg-white shadow-md">
+    <div class="p-6 text-2xl font-bold text-blue-600">Eye2</div>
+    <nav class="mt-6">
+        <a href="{% url 'dashboard' %}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-500 hover:text-white {% if request.resolver_match.url_name == 'dashboard' %}bg-blue-500 text-white{% endif %}">
+            <i class="fas fa-tachometer-alt mr-2"></i> Dashboard
+        </a>
+        <a href="{% url 'patient-list' %}" class="block py-2.5 px-4 rounded transition duration-200 hover:bg-blue-500 hover:text-white {% if 'patient' in request.resolver_match.url_name %}bg-blue-500 text-white{% endif %}">
+            <i class="fas fa-user-injured mr-2"></i> Patients
+        </a>
+    </nav>
+</aside>

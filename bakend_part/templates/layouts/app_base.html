@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="flex h-screen bg-gray-100">
+    {# الشريط الجانبي الثابت #}
+    {% include 'partials/_sidebar.html' %}
+
+    <div class="flex-1 flex flex-col overflow-hidden">
+        {# الشريط العلوي الثابت #}
+        {% include 'partials/_navbar.html' %}
+
+        {# المحتوى القابل للتمرير #}
+        <main class="flex-1 overflow-x-hidden overflow-y-auto p-6">
+            {# رسائل النجاح والخطأ #}
+            {% include 'partials/_flash_messages.html' %}
+
+            {# محتوى الصفحة الفعلي #}
+            {% block page_content %}{% endblock %}
+        </main>
+    </div>
+</div>
+{% endblock %}

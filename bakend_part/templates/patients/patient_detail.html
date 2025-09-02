@@ -1,0 +1,49 @@
+{% extends 'layouts/app_base.html' %}
+
+{% block title %}Patient Details{% endblock %}
+
+{% block page_content %}
+<h1 class="text-3xl font-bold mb-6">{{ patient.full_name }}</h1>
+
+<!-- Patient Info -->
+<div class="bg-white p-6 rounded-lg shadow mb-8">
+    <h2 class="text-2xl font-bold mb-4">Patient Information</h2>
+    <p><strong>Age:</strong> {{ patient.age }}</p>
+    <p><strong>Gender:</strong> {{ patient.get_gender_display }}</p>
+    <p><strong>Clinic:</strong> {{ patient.clinic.name }}</p>
+</div>
+
+<!-- New Diagnosis Form -->
+<div class="bg-white p-6 rounded-lg shadow mb-8">
+    <h2 class="text-2xl font-bold mb-4">Create New Diagnosis</h2>
+    <form action="{% url 'diagnosis-create' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ upload_form.as_p }}
+        <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 mt-4">
+            Upload and Process
+        </button>
+    </form>
+</div>
+
+<!-- Diagnosis History -->
+<div class="bg-white p-6 rounded-lg shadow">
+    <h2 class="text-2xl font-bold mb-4">Diagnosis History</h2>
+    <ul class="divide-y divide-gray-200">
+        {% for diagnosis in diagnoses %}
+        <li class="py-3">
+            <a href="{% url 'diagnosis-detail' diagnosis.id %}" class="font-semibold text-blue-600 hover:underline">
+                Diagnosis on {{ diagnosis.created_at|date:"F d, Y" }}
+            </a>
+            <span class="ml-4 px-2 py-1 text-sm rounded-full 
+                {% if diagnosis.status == 'SUCCESS' %}bg-green-200 text-green-800
+                {% elif diagnosis.status == 'FAILURE' %}bg-red-200 text-red-800
+                {% else %}bg-yellow-200 text-yellow-800{% endif %}">
+                {{ diagnosis.get_status_display }}
+            </span>
+        </li>
+        {% empty %}
+        <p>No diagnoses found for this patient.</p>
+        {% endfor %}
+    </ul>
+</div>
+{% endblock %}
