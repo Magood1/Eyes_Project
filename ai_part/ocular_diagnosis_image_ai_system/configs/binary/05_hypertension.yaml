@@ -1,0 +1,8 @@
+# FILE: configs/binary/05_hypertension.yaml
+imports: {path: configs/binary/base_binary_config.yaml}
+binary_task:
+  disease_name: "Hypertensive Retinopathy"
+  positive_keywords: ["hypertensive"]
+preprocessing:
+  preprocessing_strategy: "HypertensionPreprocessing"
+artifacts: {run_name: "hypertension_resnet50_v1"}

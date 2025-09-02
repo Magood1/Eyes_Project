@@ -1,0 +1,33 @@
+# FILE: configs/1_feature_generation_config.yaml
+
+environment:
+  seed: 42
+  mixed_precision: true
+
+# مسارات النماذج الصورية المُدربة
+vision_models:
+  multi_class: "path/to/multi_class/final_model.keras"
+  
+  expert_models:
+    diabetes: "path/to/binary/diabetes/final_model_weights.h5"
+    glaucoma: "path/to/binary/glaucoma/final_model_weights.h5"
+    cataract: "path/to/binary/cataract/final_model_weights.h5"
+    amd: "path/to/binary/amd/final_model_weights.h5"
+    hypertension: "path/to/binary/hypertension/final_model_weights.h5"
+    myopia: "path/to/binary/myopia/final_model_weights.h5"
+
+data:
+  csv_path: "./ODIR-5K/ODIR-5K/data.xlsx"
+  images_dir: "./ODIR-5K/ODIR-5K/Training Images"
+  image_size: 224
+
+output:
+  format: "parquet" # or "csv"
+  features_path: "data/tabular_features.parquet"
+  split_seed: 42
+  test_split: 0.2
+  val_split: 0.15
+
+fusion:
+  strategy: "F1ScoreFusion"
+  params: {}

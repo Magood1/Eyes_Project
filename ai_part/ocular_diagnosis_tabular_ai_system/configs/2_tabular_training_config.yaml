@@ -1,0 +1,31 @@
+# FILE: configs/2_tabular_training_config.yaml
+
+environment: {seed: 42}
+
+data:
+  features_path: "data/tabular_features.parquet"
+  target_columns: ['N', 'D', 'G', 'C', 'A', 'H', 'M', 'O']
+
+model:
+  type: "TabularResNet"
+  params:
+    num_blocks: 3
+    initial_units: 128
+    final_units: 64
+    l2_reg: 0.0001
+    dropout_rate: 0.3
+
+training:
+  epochs: 100
+  batch_size: 64
+  optimizer: {name: "Adam", learning_rate: 0.001}
+  loss_function: "binary_crossentropy"
+  metrics: ["auc", "precision", "recall"]
+  callbacks:
+    early_stopping: {monitor: "val_auc", patience: 15, mode: "max"}
+    reduce_lr: {monitor: "val_auc", patience: 5, factor: 0.2, mode: "max"}
+
+artifacts:
+  output_dir: "experiments/tabular"
+  run_name: "tabular_resnet_v2"
+  save_as_saved_model: false

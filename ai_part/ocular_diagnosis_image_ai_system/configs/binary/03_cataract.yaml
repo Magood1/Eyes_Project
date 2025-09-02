@@ -1,0 +1,8 @@
+# FILE: configs/binary/03_cataract.yaml
+imports: {path: configs/binary/base_binary_config.yaml}
+binary_task:
+  disease_name: "Cataract"
+  positive_keywords: ["cataract"]
+preprocessing:
+  preprocessing_strategy: "CataractPreprocessing"
+artifacts: {run_name: "cataract_resnet50_v1"}

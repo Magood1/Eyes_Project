@@ -1,0 +1,30 @@
+# FILE: configs/multi_class_config.yaml
+
+environment: {seed: 42, mixed_precision: true, enable_xla: true}
+data:
+  kaggle_dataset: "andrewmvd/ocular-disease-recognition-odir5k"
+  base_path: "./ODIR-5K"
+  csv_path: "./ODIR-5K/ODIR-5K/data.xlsx"
+  images_dir: "./ODIR-5K/ODIR-5K/Training Images"
+  class_names: ['N', 'D', 'G', 'C', 'A', 'H', 'M', 'O']
+preprocessing:
+  image_size: 224
+  validation_split: 0.15
+  test_split: 0.15
+  preprocessing_strategy: "MULTICLASSPreprocessing"
+model: {base_model: "ResNet50", weights: "imagenet", type: "multi_class", use_base_model_preprocessing: true}
+training_strategy:
+  stage_1: {enabled: true, epochs: 5, base_lr: 0.001}
+  stage_2: {enabled: true, epochs: 15, unfreeze_layers: 20, lr_scheduler: {name: "CosineDecay"}}
+training:
+  optimizer: {name: "Adam"}
+  loss_function: "categorical_crossentropy"
+  metrics: ["accuracy", "auc"]
+  batch_size: 32
+  use_class_weights: true
+  monitor_metric: "val_accuracy"
+  monitor_mode: "max"
+artifacts:
+  output_dir: "experiments/multi_class"
+  run_name: "multi_class_resnet50_v4"
+  save_as_saved_model: true

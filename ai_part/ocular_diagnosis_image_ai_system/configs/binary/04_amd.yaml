@@ -1,0 +1,8 @@
+# FILE: configs/binary/04_amd.yaml
+imports: {path: configs/binary/base_binary_config.yaml}
+binary_task:
+  disease_name: "Age-related Macular Degeneration"
+  positive_keywords: ["macular degeneration"]
+preprocessing:
+  preprocessing_strategy: "AgeIssuesPreprocessing"
+artifacts: {run_name: "amd_resnet50_v1"}

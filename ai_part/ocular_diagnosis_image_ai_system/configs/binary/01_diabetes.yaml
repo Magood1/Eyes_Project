@@ -1,0 +1,8 @@
+# FILE: configs/binary/01_diabetes.yaml
+imports: {path: configs/binary/base_binary_config.yaml}
+binary_task:
+  disease_name: "Diabetes"
+  positive_keywords: ["diabetic retinopathy"]
+preprocessing:
+  preprocessing_strategy: "DiabetesPreprocessing"
+artifacts: {run_name: "diabetes_resnet50_v1"}
